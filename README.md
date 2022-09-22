@@ -1,14 +1,14 @@
-# MaskRCNN_Video
+# Monocyte Monolayer Index calculation using MaskRCNN
 
-En este proyecto abordaremos la segmentación semantica usando MaskRCNN en imagenes y video. Los repositorios base de este proyecto son los siguiente. El primero de ellos es la implementación para Tensorflow 1, y el segundo repositorio tiene la actualización para Tensorflow 2.
-Se realizaron modificaciones para correr la detección usando la cámara web.
+In this project we will address semantic segmentation using MaskRCNN in images and video. The base repositories of this project are the following. The first one is the implementation for Tensorflow 1, and the second repository has the update for Tensorflow 2.
+Modifications were made to run detection using the webcam.
 
     https://github.com/matterport/Mask_RCNN
     https://github.com/akTwelve/Mask_RCNN
 
-## Preparación del entorno
+## Environment preparation
 
-Prepararemos un entorno con python 3.7.7, Tensorflow 2.1.0 y keras 2.3.1
+We will prepare an environment with python 3.7.7, Tensorflow 2.1.0 and keras 2.3.1
 
     $ conda create -n MaskRCNN anaconda python=3.7.7
     $ conda activate MaskRCNN
@@ -20,69 +20,59 @@ Prepararemos un entorno con python 3.7.7, Tensorflow 2.1.0 y keras 2.3.1
     $ pip install keras
     $ pip install numpy scipy Pillow cython matplotlib scikit-image opencv-python h5py imgaug IPython[all]
     
-## Instalar MaskRCNN
+## Install MaskRCNN
 
     $ python setup.py install
     $ pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
     
-## Prueba en Jupyter notebook
+## Try on Jupyter notebook
 
     $ cd samples
     $ jupyter notebook
     
-## Prueba en consola con imagenes y en video
+## Test on console with images and video
 
-### Con imágenes
+### With Images
 
     $ cd samples
     $ python imagemask.py
     
-### En video
+### On video
 
     $ cd samples
     $ python videomask.py
     
-# Entrenamiento con custom-dataset
--   Etiquetar el data set con la herramienta [VIAv1.0](http://www.robots.ox.ac.uk/~vgg/software/via/via-1.0.0.html) (Hacerlo con la versión 1.0.0)
--   Guardar los datos de validación y entrenamiento en carpetas con nombre train y val
--   Guardar las anotaciones de los dos grupos de datos con el nombre: via_region_data.json
--   Ejeccutar en google colab el archivo Casco.ipynb.
+# Training with custom-dataset
+-   Label the data set with the tool [VIAv1.0](http://www.robots.ox.ac.uk/~vgg/software/via/via-1.0.0.html) (Do it with version 1.0.0)
+-   Save validation and training data in folders named train and val
+-   Save the annotations of the two data groups with the name: via_region_data.json
+-   Run in google colab the file 
 
-## Prueba del modelo entrenado con custom-dataset
+## Testing the trained model with custom-dataset
 
--   PARA PRUEBA DEL SISTEMA CON IMÁGENES:
+-   FOR SYSTEM TEST WITH IMAGES:
     
-    Modificar los parámetros 
+   Modify parameters
     
-    -   model_filename = "mask_rcnn_casco_0050.h5" # Aquí deben cargar el modelo entrenado con su dataset
-    -   class_names = ['BG', 'casco'] # Las clases relacionadas con su modelo BG + clases custom
-    -   min_confidence = 0.6 # Nivel mínimo de confianza para aceptar un hallazgo como positivo
-    
-    $ python casco.py
+    -   model_filename = "mask_rcnn_casco_0050.h5" # Here you must load the trained model with your dataset
+    -   class_names = ['BG', 'helmet'] # The classes related to your BG model + custom classes
+    -   min_confidence = 0.6 # Minimum level of confidence to accept a finding as positive
         
--   PARA PRUEBA DEL SISTEMA EN VIDEO:
+-   FOR VIDEO SYSTEM TEST:
 
-    Modificar los parámetros 
+    Modify parameters
     
-    -   model_filename = "mask_rcnn_casco_0050.h5" # Aquí deben cargar el modelo entrenado con su dataset
-    -   class_names = ['BG', 'casco'] # Las clases relacionadas con su modelo BG + clases custom
-    -   min_confidence = 0.6 # Nivel mínimo de confianza para aceptar un hallazgo como positivo
-    -   camera = cv2.VideoCapture(0) # Si desean correr webcam
-    -   camera = cv2.VideoCapture("video.mp4") # Si desean correr un video cargandolo desde su PC
+    -  model_filename = "mask_rcnn_casco_0050.h5" # Here you must load the trained model with your dataset
+    -  class_names = ['BG', 'helmet'] # The classes related to your BG model + custom classes
+    -   min_confidence = 0.6 # Minimum level of confidence to accept a finding as positive
+    -   camera = cv2.VideoCapture(0) # If you want to run webcam
+    -   camera = cv2.VideoCapture("video.mp4") # If you want to run a video uploading it from your PC
+  
     
-    $ python cascoVideo.py
-    
+
 
  
-## Entrenamiento multiclases custom dataset
-
- -   CustomClasses.ipynb
- 
-## IoU Intersection over Union
-
--   IoUTest.ipynb
- 
-# Agradecimientos
+# Thanks
 
     Matterport, Inc
     https://github.com/matterport
@@ -90,5 +80,4 @@ Prepararemos un entorno con python 3.7.7, Tensorflow 2.1.0 y keras 2.3.1
     Adam Kelly
     https://github.com/akTwelve
 
-# **Canal de Youtube**
-[Click aquì pare ver mi canal de YOUTUBE](https://www.youtube.com/channel/UCr_dJOULDvSXMHA1PSHy2rg)
+
