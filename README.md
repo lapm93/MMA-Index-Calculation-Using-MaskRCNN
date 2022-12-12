@@ -58,7 +58,7 @@ We will prepare an environment with python 3.7.7, Tensorflow 2.1.0 and keras 2.3
     
    Modify parameters
     
-    -   model_filename = "mask_rcnn_casco_0050.h5" # Here you must load the trained model with your dataset
+    -   model_filename = "mask_rcnn_0020.h5" # Here you must load the trained model with your dataset
     -   class_names = ['BG', 'FreeMonocytes', 'Ingested/AdheredMonocytes'] # The classes related to your BG model + custom classes
     -   min_confidence = 0.9 # Minimum level of confidence to accept a finding as positive
         
