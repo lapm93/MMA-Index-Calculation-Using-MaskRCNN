@@ -1,5 +1,9 @@
 # Monocyte Monolayer Index calculation using MaskRCNN
 
+Image segmentation has been used in the medical field for long time ago. Artificial intelligence algorithms have an incredible ability to learn and improve themselves. The Monocyte Monolayer Assay (MMA) is an in-vitro procedure that has been used for more than 40 years to predict in-vivo survivability of incompatible RBCs [1]. The MMA mimics extravascular hemolysis of red blood cells and may be used to guide transfusion recommendations. The Monocyte Index is a percentage of RBCs adhered, ingested or both by the monocytes. A minimum of 400 myocytes must be counted for enough data to determine the risk of transfusion of incompatible blood. In this work, Artificial Intelligence has been used to automate the Monocyte Index calculation, providing faster results. Mask R-CNN has been implemented in complement to image segmentation and object detection. A COCO pre-trained model was used to fine-tune our own model. 
+Our key contribution is the first application of deep learning for classification of Monocytes and for Monocyte Index computation. The key significance of this work is that it may potentially save precious time in a life-saving procedure of blood transfusion. The broad significance is that similar methods of segmentation of multiple biological cells may be of great benefit to biological researchers that may want an automated method, as opposed to manual methods of classification and counting. With state-of-the-art deep learning models, we now have more accurate methods in this domain. 
+
+
 In this project we will address semantic segmentation using MaskRCNN in images and video. The base repositories of this project are the following. The first one is the implementation for Tensorflow 1, and the second repository has the update for Tensorflow 2.
 Modifications were made to run detection using the webcam.
 
@@ -79,5 +83,7 @@ We will prepare an environment with python 3.7.7, Tensorflow 2.1.0 and keras 2.3
 
     Adam Kelly
     https://github.com/akTwelve
-
+    
+    DavidReveloLuna
+    https://github.com/DavidReveloLuna/MaskRCNN_Video
 
