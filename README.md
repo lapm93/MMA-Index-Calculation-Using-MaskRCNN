@@ -5,6 +5,36 @@ Our key contribution is the first application of deep learning for classificatio
 
 
 In this project we will address semantic segmentation using MaskRCNN in images and video. The base repositories of this project are the following. The first one is the implementation for Tensorflow 1, and the second repository has the update for Tensorflow 2.
+
+## Methods
+We used Mask R-CNN techniques for instance segmentation which allows not only the detection and location of cells but also their classification and counting. 
+## Datasets Acquisition and Processing
+We use COCO pre-trained weights to train our own model.  Also, we use our own dataset collection image collected using ZEISS Axiocam 208 color/202 mono Microscope camera. A total of 500 image were divided in three folders (train, validation, and test).
+## Proposed Solution
+Mask-RCNN model has been modified to identify and count the monocytes present in the dataset. A minimum of 400 monocytes it must be identified in order to provide an acceptable Monocyte Index (MI). 
+The formula to calculate the MI is as follows:
+MI = ((Total # of Monocytes Ingested or Adhered RBC) / (Total Number of Monocytes Counted))𝑥 100%
+
+The MI is the percentage of RBCs adhered, ingested or both (for the total) verses free monocytes. An MI of ‘Zero’ or 0 indicates there were no adhered or phagocytized red cells [1]. Experience with this procedure has been similar to others; in that MI values of ≤5% have indicated that incompatible blood can be given without the risk of an overt hemolytic transfusion reaction, but it does not guarantee normal long-term survival of those RBCs. MI values ranging from 5–20% have a reduced risk of clinical significance, but signs and symptoms of transfusion reaction may occur. Similarly, an MI of >20% indicates the antibody has clinical significance, which may range from abnormal RBC survival to clinically obvious adverse reactions.
+
+## Results 
+The neural network has two primary layers: coco transfer learning to speed up computation and enhance accuracy, and object identification and categorization, which supports the preceding layer. A Matterport Mask RCNN was used to identify objects. In the classification layer, a ResNet101 was used. Our training (fine-tuning) model took approximately 8 hours to complete the training with 20 epochs and 500 steps per epoch. Our GPU was a simple AMD Radeon R7 250. We had good quality (uncompressed) images. Our model was able to successfully detect, classify and count the two different classes assigned and the background. We used minimum confidence of 0.9, one GPU per image, and NMS threshold of 0.3, as our key parameters. The Confusion Matrix for the Test data is shown at Table 1.0.
+
+![image](https://github.com/lapm93/MMA-Index-Calculation-Using-MaskRCNN/assets/100726201/77d214d4-304a-4ba1-808b-f718b76d72dc)
+
+The time taken for detection, classification and printing the MI was about 5s. The false positives may be coming from the platelets, the noise in the image and the calibration of the microscope. A visual inspection was performed by a trained laboratory scientist with the results of our model. Compared to the trained laboratory scientist, the model can process with comparable accuracy. Human error can be as high as 30% at times of heavy workload and noisy images.
+
+![image](https://github.com/lapm93/MMA-Index-Calculation-Using-MaskRCNN/assets/100726201/ce03f428-47bd-480c-8558-6580b1a3b191)
+![image](https://github.com/lapm93/MMA-Index-Calculation-Using-MaskRCNN/assets/100726201/f0f7f00d-2955-4f04-9248-276e06edc47a)
+
+## CONCLUSION AND RECOMMENDATIONS
+
+Compared to a medical laboratory scientist, the model can process large amounts of data simultaneously, quickly, and efficiently, with approximately the same judgment accuracy as a human eye. The laboratory scientist can use the tool for the easy segmentations at high speed. For the uncertain segmentations, the manual methods may also be used for confirmation, which may significantly reduce the burden of the laboratory scientist and provide a useful reference for doctors to identify a potential blood candidate to be transfused. We hope that this method will increase the range of potential approaches to use a real time video analysis of Monocyte Index calculation.
+
+
+
+
+
 Modifications were made to run detection using the webcam.
 
     https://github.com/matterport/Mask_RCNN
