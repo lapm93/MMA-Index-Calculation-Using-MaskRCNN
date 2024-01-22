@@ -32,14 +32,6 @@ The time taken for detection, classification and printing the MI was about 5s. T
 Compared to a medical laboratory scientist, the model can process large amounts of data simultaneously, quickly, and efficiently, with approximately the same judgment accuracy as a human eye. The laboratory scientist can use the tool for the easy segmentations at high speed. For the uncertain segmentations, the manual methods may also be used for confirmation, which may significantly reduce the burden of the laboratory scientist and provide a useful reference for doctors to identify a potential blood candidate to be transfused. We hope that this method will increase the range of potential approaches to use a real time video analysis of Monocyte Index calculation.
 
 
-
-
-
-Modifications were made to run detection using the webcam.
-
-    https://github.com/matterport/Mask_RCNN
-    https://github.com/akTwelve/Mask_RCNN
-
 ## Environment preparation
 
 We will prepare an environment with python 3.7.7, Tensorflow 2.1.0 and keras 2.3.1
